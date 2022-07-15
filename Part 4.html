@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>
+		 detect new browser or tab 
+	</title>
+</head>
+<script>
+    $(window).blur(function(){
+  alert("New browser tab or new browser opened");
+});
+
+</script>
+<body>
+	<b>Detect opening new browser tab or new browser</b>
+	
+
+	
+	<form>
+		<textarea placeholder = "Trigger an
+		interaction by writing something here">
+		</textarea>
+	</form>
+	
+	<script type="text/javascript">
+		window.addEventListener('beforeunload', function (e) {
+			e.preventDefault();
+			e.returnValue = '';
+		});
+	</script>
+</body>
+
+</html>					

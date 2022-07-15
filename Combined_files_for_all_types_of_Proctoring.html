@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        
+         $(window).blur(function(){
+  alert("User deviated from the page");
+});
+
+
+        function myFunction() {
+  return "Tab Reload";
+}
+    </script>
+<head>
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="appin" onclick="openFullscreen();" onload="openFullscreen();" onmouseover="openFullscreen();" oncontextmenu="openFullscreen()" ondrag="select()">
+
+    <h1>Fullscreen on load page, Due to browser policies the full screen will only be activated if user interacts with website
+        for example, click on the text or left click your mouse and move the curser to activate fullscreen
+    </h1>
+    
+    <style>
+    *:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+        background-color: rgba(255,255,255,0)!important;
+        padding: 20px;
+    }
+    
+    ::backdrop
+    {
+        background-color: white;
+        
+    }
+    </style>
+    <script>
+    var elem = document.getElementById("appin");
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    if (document.addEventListener)
+{
+ document.addEventListener('fullscreenchange', exitHandler, false);
+ document.addEventListener('mozfullscreenchange', exitHandler, false);
+ document.addEventListener('MSFullscreenChange', exitHandler, false);
+ document.addEventListener('webkitfullscreenchange', exitHandler, false);
+}
+
+function exitHandler()
+{
+ if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement)
+ {
+  alert("Cannot exit full screen")
+ }
+}
+	
+
+// Closing the Tab
+		window.addEventListener('beforeunload', function (e) {
+			e.preventDefault();
+			e.returnValue = '';
+		});
+	</script>
+   
+   <script>
+    /* Storing user's device details in a variable*/
+    let details = navigator.userAgent;
+
+    /* Creating a regular expression 
+    containing some mobile devices keywords 
+    to search it in details string*/
+    let regexp = /android|iphone|kindle|ipad/i;
+
+    /* Using test() method to search regexp in details
+    it returns boolean value*/
+    let isMobileDevice = regexp.test(details);
+
+    if (isMobileDevice) {
+        alert("You are not using Desktop Mode, Use Desktop Mode");
+    } 
+</script>
+</body>
+</html>

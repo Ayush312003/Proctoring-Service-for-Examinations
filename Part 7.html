@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+  
+
+        function myFunction() {
+  return "Tab Reload";
+}
+    </script>
+<head>
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onbeforeunload="return myFunction()">
+
+    <h1>Device Compatibility, Alert if not in desktop mode</h1>
+
+   
+   <script>
+    /* Storing user's device details in a variable*/
+    let details = navigator.userAgent;
+
+    /* Creating a regular expression 
+    containing some mobile devices keywords 
+    to search it in details string*/
+    let regexp = /android|iphone|kindle|ipad/i;
+
+    /* Using test() method to search regexp in details
+    it returns boolean value*/
+    let isMobileDevice = regexp.test(details);
+
+    if (isMobileDevice) {
+        alert("You are not using Desktop Mode, Use Desktop Mode");
+    } 
+</script>
+</body>
+</html>

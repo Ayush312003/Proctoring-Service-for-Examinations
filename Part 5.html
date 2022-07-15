@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="appin" onclick="openFullscreen();" onload="openFullscreen();" onmouseover="openFullscreen();" oncontextmenu="openFullscreen()" ondrag="select()">
+
+<h1>Fullscreen on load page, Due to browser policies the full screen will only be activated if user interacts with website
+    for example, click on the text or left click your mouse and move the curser to activate fullscreen
+</h1>
+
+<style>
+*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+    background-color: rgba(255,255,255,0)!important;
+    padding: 20px;
+}
+
+::backdrop
+{
+    background-color: white;
+    
+}
+</style>
+<script>
+var elem = document.getElementById("appin");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
